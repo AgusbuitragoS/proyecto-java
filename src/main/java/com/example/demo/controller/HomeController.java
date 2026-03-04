@@ -18,7 +18,10 @@ public class HomeController {
 
     @GetMapping("/probar-conexion")
     public String probarConexion(Model model) {
-
+    System.out.println("MYSQLHOST: " + System.getenv("MYSQLHOST"));
+    System.out.println("MYSQLPORT: " + System.getenv("MYSQLPORT"));
+    System.out.println("MYSQLDATABASE: " + System.getenv("MYSQLDATABASE"));
+    System.out.println("MYSQLUSER: " + System.getenv("MYSQLUSER"));
         try {
             jdbcTemplate.execute("SELECT 1");
             model.addAttribute("mensaje", "✅ Conexión exitosa a la base de datos");
@@ -29,3 +32,4 @@ public class HomeController {
         return "index";
     }
 }
+
